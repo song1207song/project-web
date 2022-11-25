@@ -1,10 +1,10 @@
-package com.example.projectweb;
+package com.songha.projectweb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjectWebApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
