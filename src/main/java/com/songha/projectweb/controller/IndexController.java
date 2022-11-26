@@ -20,11 +20,18 @@ public class IndexController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/{name}", produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView indexByName(ModelAndView modelAndView, HttpServletRequest request, @PathVariable String name) {
-        log.debug("IndexController.indexByName :: name->{}", name);
-        String pageName = ViewPathUtil.menuName();
-        modelAndView.setViewName(pageName);
+    @GetMapping(value = "/{category}/{viewName}", produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView indexByViewName(ModelAndView modelAndView, HttpServletRequest request,
+                                        @PathVariable String category, @PathVariable String viewName) {
+        log.info("IndexController.indexByViewName :: category->{}, viewName->{}", category, viewName);
+        String viewPathName = ViewPathUtil.viewPathName(category, viewName);
+        modelAndView.setViewName(viewPathName);
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/error/404", produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView indexError(ModelAndView modelAndView, HttpServletRequest request) {
+        modelAndView.setViewName("error/404");
         return modelAndView;
     }
 }
