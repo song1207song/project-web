@@ -21,8 +21,8 @@ public class ArtAspect extends AbstractProjectWebAspect {
     }
 
     @Override
-    @Pointcut("")
-    protected void setCategoryPointCut() {
+    @Pointcut("target(com.songha.projectweb.controller.ArtApiController)")
+    protected void categoryPointCut() {
 
     }
 }

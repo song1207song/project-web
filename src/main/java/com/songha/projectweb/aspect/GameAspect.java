@@ -3,6 +3,7 @@ package com.songha.projectweb.aspect;
 import com.songha.projectweb.service.ProjectWebService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,8 @@ public class GameAspect extends AbstractProjectWebAspect {
     }
 
     @Override
-    protected void setCategoryPointCut() {
+    @Pointcut("target(com.songha.projectweb.controller.GameApiController)")
+    protected void categoryPointCut() {
 
     }
 }
