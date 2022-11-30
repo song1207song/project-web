@@ -1,6 +1,6 @@
 package com.songha.projectweb.util;
 
-import com.songha.projectweb.annotation.DevDescriptionAnnotation;
+import com.songha.projectweb.annotation.DevDescription;
 import com.songha.projectweb.exception.PageNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 public class ViewPathUtil {
-    @DevDescriptionAnnotation(description = "HttpServletRequest에서 templatePath를 가져온다.")
+    @DevDescription(description = "HttpServletRequest에서 templatePath를 가져온다.")
     public static String viewPathName() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String category = request.getRequestURI().split("/")[1]; // path 경로의 첫번째 값이 category
@@ -18,7 +18,7 @@ public class ViewPathUtil {
         return viewPathName(category, viewName);
     }
 
-    @DevDescriptionAnnotation(description = "parameter에서 templatePath를 받아온다.")
+    @DevDescription(description = "parameter에서 templatePath를 받아온다.")
     public static String viewPathName(String category, String viewName) {
         String templatePath = getTemplatesPathOrThrow(category, viewName);
         log.info("ViewPathUtil.viewPathName :: templatePath->{}", templatePath);
