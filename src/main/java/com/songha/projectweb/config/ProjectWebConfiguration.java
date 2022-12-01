@@ -1,7 +1,7 @@
 package com.songha.projectweb.config;
 
-import com.songha.projectweb.util.CategoryResolver;
-import com.songha.projectweb.util.DeviceResolver;
+import com.songha.projectweb.resolver.CategoryResolver;
+import com.songha.projectweb.resolver.DeviceResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
