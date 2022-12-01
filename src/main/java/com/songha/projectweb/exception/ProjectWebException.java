@@ -2,7 +2,6 @@ package com.songha.projectweb.exception;
 
 import com.songha.projectweb.domain.error.ErrorCode;
 
-
 /**
  * @Description :: 프로젝트에서 사용할 최상위 custom exception
  */

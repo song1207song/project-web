@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @Description :: exceptionHandler 구현부.
+ * 각 custom exception 별 알맞은 처리 과정을 기술하였다.
+ * - e.g. PageNotFoundException 발생 시 404 페이지로 redirect 를 유도하였다.
+ */
 @Slf4j
 @ControllerAdvice
 public class ProjectWebExceptionHandler {

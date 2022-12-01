@@ -1,6 +1,5 @@
 package com.songha.projectweb.aspect;
 
-import com.songha.projectweb.annotation.Logging;
 import com.songha.projectweb.service.ProjectWebService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -9,6 +8,10 @@ import org.aspectj.lang.reflect.MethodSignature;
 
 import java.lang.reflect.Method;
 
+/**
+ * @Description :: @Logging 어노테이션의 실제 동작을 구현한 aspect 구현체이다.
+ * 동작한 클래스명, 메소드명과 소요 시간, 파라미터를 로그로 남긴다.
+ */
 @Slf4j
 public abstract class AbstractProjectWebAspect {
     protected ProjectWebService projectWebService;
@@ -28,7 +31,14 @@ public abstract class AbstractProjectWebAspect {
         String methodName = method.getName();
 
         long begin = System.currentTimeMillis();
-        Object returnValue = joinPoint.proceed();
+
+        Object returnValue = null;
+        try {
+            returnValue = joinPoint.proceed();
+        } catch (Exception e) {
+            log.error("Unexpected error has occurred. :: errorMessage->{}", e.getMessage(), e);
+        }
+
         long end = System.currentTimeMillis();
         long durationTime = end - begin;
 
