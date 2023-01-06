@@ -1,5 +1,6 @@
 package me.songha.projectweb.aspect;
 
+import me.songha.projectweb.annotation.Logging;
 import me.songha.projectweb.service.ProjectWebService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -20,7 +21,7 @@ public abstract class AbstractProjectWebAspect {
 
     protected abstract void categoryPointCut();
 
-    @Around("@annotation(com.songha.projectweb.annotation.Logging)")
+    @Around("@annotation(me.songha.projectweb.annotation.Logging)")
     public Object logging(ProceedingJoinPoint joinPoint) throws Throwable {
         Class<?> activeClass = joinPoint.getTarget().getClass();
 //        logging = activeClass.getAnnotation(Logging.class);
