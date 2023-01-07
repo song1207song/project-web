@@ -22,10 +22,18 @@ public class GameApiController {
     private final LostArkOpenApiTemplate lostArkOpenApiTemplate;
 
     @Logging
-    @GetMapping(value = "/lostark/characterName/{characterName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map> characterProfile(@PathVariable String characterName, Device device) {
-        log.info("GameApiController.characterProfile :: characterName->{}", characterName);
-        return ResponseEntity.ok(lostArkOpenApiTemplate.getSample(characterName));
+    @GetMapping(value = "/lostark/armories/{characterName}/profiles", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map> getProfiles(@PathVariable String characterName, Device device) {
+        log.info("GameApiController.getProfiles :: characterName->{}", characterName);
+        return ResponseEntity.ok(lostArkOpenApiTemplate.getProfiles(characterName));
     }
+
+    @Logging
+    @GetMapping(value = "/lostark/characters/{characterName}/siblings", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map> getCharacters(@PathVariable String characterName, Device device) {
+        log.info("GameApiController.getCharacters :: characterName->{}", characterName);
+        return ResponseEntity.ok(lostArkOpenApiTemplate.getCharacters(characterName));
+    }
+
 
 }
