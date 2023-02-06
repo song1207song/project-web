@@ -35,5 +35,4 @@ public class GameApiController {
         return ResponseEntity.ok(lostArkOpenApiTemplate.getCharacters(characterName));
     }
 
-
 }
